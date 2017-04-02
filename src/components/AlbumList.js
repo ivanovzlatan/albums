@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import Swiper from 'react-native-swiper';
 import * as actions from '../actions';
@@ -23,8 +23,8 @@ class AlbumList extends Component {
     return this.props.albums.map(function (album, index){
         return (
           <View key={index}>
-            <Text style={{ color: '#000', fontSize: 25, fontWeight: 'bold', paddingLeft: 20 }}>Album: {album}</Text>
-            <Text style={{ color: '#000', fontSize: 25, fontWeight: 'bold', paddingLeft: 20 }}>Index: {index}</Text>
+            <Text style={styles.text}>Album: {album}</Text>
+            <Text style={styles.text}>Index: {index}</Text>
           </View>
         );
       });
@@ -52,6 +52,14 @@ class AlbumList extends Component {
   }
 }
 
+const styles = {
+  text: {
+    color: '#000',
+    fontSize: 25,
+    fontWeight: 'bold',
+    paddingLeft: 20
+  }
+};
 
 const mapStateToProps = (state) => (
   { albums: state.albums }
